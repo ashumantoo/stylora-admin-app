@@ -1,15 +1,10 @@
 import './App.css';
-import { AppLayout } from './components/layout/Layout';
-import { useEffect, useState } from 'react';
-import { Auth } from './pages/auth'
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { setAuthState } from './slices/auth-slice';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import store from './store';
 import AppRoute from './app.route';
-import { Signin } from './pages/auth/Signin';
+import { ConfigProvider } from 'antd';
 
 
 function App() {
@@ -21,11 +16,21 @@ function App() {
       dispatch(setAuthState())
     }
   }, [authenticated]);
-  
+
   return (
-    <>
+    <ConfigProvider theme={{
+      token: {
+        colorPrimary: '#2874f0'
+      },
+      components: {
+        Button: {
+          colorPrimary: '#2874f0'
+        }
+      }
+    }
+    }>
       <AppRoute />
-    </>
+    </ConfigProvider>
   );
 }
 

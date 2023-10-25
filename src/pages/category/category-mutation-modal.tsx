@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Button, Input, Modal, Select, Space, Upload, message } from 'antd';
-import { ICategory, ICategoryInput, ISimpleCategory } from '../../types/category.types';
+import { Button, Input, Modal, Select, Space, Upload, message, Image } from 'antd';
+import { ICategory, ICategoryInput, ISimpleCategory, MEDIA_FOLDER_NAME } from '../../types/category.types';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UploadOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { _createCategory, _getCategory, _updateCategory } from '../../slices/category-slice';
-import { formatAxiosError } from '../../utils/helper';
+import { formatAxiosError, mediaUploader } from '../../utils/helper';
 import { AxiosError } from 'axios';
+import { UploadMedia } from '../../components/upload-media';
 
 interface IProps {
   open: boolean;
@@ -18,7 +19,8 @@ interface IProps {
 
 const defaultCategory = {
   name: "",
-  parentId: ""
+  parentId: "",
+  imageUrl: ""
 }
 
 export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClose, reloadCategory }) => {
@@ -27,11 +29,13 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
   const [categories, setCategories] = useState([]);
   const [messageApi, contextHolder] = message.useMessage();
 
-  const { control, handleSubmit, reset, formState: { errors } } = useForm({
+  const { control, handleSubmit, reset, setValue, getValues, formState: { errors } } = useForm({
     defaultValues: {
       ...defaultCategory
     },
   })
+
+  // https://res.cloudinary.com/ashumantoo/image/upload…lipkart-clone/categories/waiioxllrh5ta3djowzm.jpg
 
   const onSubmit: SubmitHandler<ICategoryInput> = async (data) => {
     try {
@@ -69,7 +73,8 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
       if (response) {
         reset({
           name: response.category.name,
-          parentId: response.category.parentId
+          parentId: response.category.parentId,
+          imageUrl: response.category.imageUrl
         })
       }
     } catch (error) {
@@ -132,20 +137,30 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
               />
             )}
           />
+          {getValues('imageUrl') && (
+            <div className='mt-4'>
+              <Image
+                width={80}
+                height={80}
+                src={getValues('imageUrl')}
+                preview={false}
+              />
+            </div>
+          )}
           <div className='mt-4'>
-            <Upload
-              accept='image/*'
-              onChange={() => { }}
-            >
-              <Button icon={<UploadOutlined />}>Select Image</Button>
-            </Upload>
+            <UploadMedia
+              folderName={MEDIA_FOLDER_NAME.CATEGORIES}
+              getUploadedMediaUrls={(urls: string[]) => {
+                setValue('imageUrl', urls[0]);
+              }}
+            />
           </div>
           <div className='flex justify-end items-center gap-1'>
             <Button onClick={handleClose}>
               Cancel
             </Button>
             <Button
-              className='bg-blue-700 text-white'
+              type='primary'
               onClick={handleSubmit(onSubmit)}
             >
               Submit

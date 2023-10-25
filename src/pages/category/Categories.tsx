@@ -1,5 +1,5 @@
 import { ThunkDispatch } from '@reduxjs/toolkit';
-import { Button, message } from 'antd';
+import { Button, message, Image } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
 import { useEffect, useState } from 'react';
 import { FaTrash, FaEdit } from 'react-icons/fa';
@@ -13,6 +13,7 @@ import { AxiosError } from 'axios';
 
 interface ICategoryData {
   _id: string;
+  imageUrl: string;
   name: string;
   slug: string;
   parent: string;
@@ -30,16 +31,29 @@ export const Categories = () => {
 
   const columns: ColumnsType<ICategoryData> = [
     {
+      title: 'Image',
+      render: (value: ICategoryData, record: ICategoryData, index: number) => {
+        return (
+          <>
+            <Image
+              width={50}
+              height={50}
+              src={record.imageUrl}
+            />
+          </>
+        )
+      }
+    },
+    {
       title: 'Name',
       dataIndex: 'name',
-      render: (text: string) => <a>{text}</a>,
     },
     {
       title: 'Slug',
       dataIndex: 'slug',
     },
     {
-      title: 'Parent',
+      title: 'Parent Category',
       dataIndex: 'parent',
     },
     {
@@ -121,6 +135,7 @@ export const Categories = () => {
         name: category.name,
         parent: name || "",
         parentId: parentId || "",
+        imageUrl: category.imageUrl ? category.imageUrl : `https://placehold.co/600x400`,
         slug: category.slug
       })
       if (category.subCategories && category.subCategories.length) {
@@ -135,7 +150,7 @@ export const Categories = () => {
       <div className='flex justify-between py-2 align-middle'>
         <h3 className='text-2xl font-bold'>Categories</h3>
         <Button
-          className='bg-blue-700 text-white h-10'
+          type='primary'
           onClick={() => setOpenModal(true)}
         >
           + New Category

@@ -14,7 +14,7 @@ export interface ISimpleCategory {
 export interface ICategoryInput {
   name: string;
   parentId?: string;
-  categoryImage?: File;
+  imageUrl?: string;
 }
 
 export interface ICategory {
@@ -22,6 +22,7 @@ export interface ICategory {
   name: string;
   slug: string;
   parentId: string;
+  imageUrl: string;
   subCategories: ICategory[];
 }
 
@@ -46,4 +47,9 @@ export enum CATEGORY_SLICE_TYPE_ENUM {
   GET_CATEGORY = "GET_CATEGORY",
   UPDATE_CATEGORY = "UPDATE_CATEGORY",
   DELETE_CATEGORY = "DELETE_CATEGORY"
+}
+
+export enum MEDIA_FOLDER_NAME {
+  CATEGORIES = 'categories',
+  PRODUCTS = 'products'
 }
