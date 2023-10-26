@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { _deleteCategory, _getCategories, setAllCategories } from '../../slices/category-slice';
-import { ICategory } from '../../types/category.types';
+import { ICategory } from '../../types/category-types';
 import { CategoryMutationModal } from './category-mutation-modal';
 import { ConfirmationModal } from '../../components/comfirmation-modal';
 import { formatAxiosError } from '../../utils/helper';
@@ -166,10 +166,10 @@ export const Categories = () => {
           dataSource={data}
           size='middle'
           pagination={{
-            position: ["bottomCenter"],
-            pageSizeOptions: [10, 20, 50, 100],
-            showSizeChanger: true,
-            defaultPageSize: 10
+            // position: ["bottomCenter"],
+            // pageSizeOptions: [10, 20, 50, 100],
+            // showSizeChanger: true,
+            // defaultPageSize: 10
           }}
         />
         {openModal && (

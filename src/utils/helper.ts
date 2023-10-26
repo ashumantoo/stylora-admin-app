@@ -1,4 +1,7 @@
 import axios, { AxiosError } from "axios"
+import { ICategory, ICategoryData } from "../types/category-types";
+
+export const _formatedCategories: ICategoryData[] = [];
 
 export const formatAxiosError = (error: AxiosError) => {
   let errorMsg = "";
@@ -12,6 +15,23 @@ export const formatAxiosError = (error: AxiosError) => {
     }
   }
   return errorMsg;
+}
+
+export const formatCategories = (categories: ICategory[], parentId?: string, name?: string) => {
+  for (let index = 0; index < categories.length; index++) {
+    const category = categories[index];
+    _formatedCategories.push({
+      _id: category._id,
+      name: category.name,
+      parent: name || "",
+      parentId: parentId || "",
+      imageUrl: category.imageUrl ? category.imageUrl : `https://placehold.co/600x400`,
+      slug: category.slug
+    })
+    if (category.subCategories && category.subCategories.length) {
+      formatCategories(category.subCategories, category.parentId, category.name);
+    }
+  }
 }
 
 export const mediaUploader = async (files: File[], folderName: string) => {

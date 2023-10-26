@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Button, Input, Modal, Select, Space, Upload, message, Image } from 'antd';
-import { ICategory, ICategoryInput, ISimpleCategory, MEDIA_FOLDER_NAME } from '../../types/category.types';
+import { ICategory, ICategoryInput, ISimpleCategory, MEDIA_FOLDER_NAME } from '../../types/category-types';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UploadOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,9 +33,7 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
     defaultValues: {
       ...defaultCategory
     },
-  })
-
-  // https://res.cloudinary.com/ashumantoo/image/upload…lipkart-clone/categories/waiioxllrh5ta3djowzm.jpg
+  });
 
   const onSubmit: SubmitHandler<ICategoryInput> = async (data) => {
     try {

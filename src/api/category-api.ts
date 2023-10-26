@@ -3,7 +3,7 @@ import {
   ICategoryInput,
   IDeleteCategoryApiResponse,
   IGetCategoriesApiResponse
-} from '../types/category.types';
+} from '../types/category-types';
 import axios from '../utils/axios';
 
 export default {

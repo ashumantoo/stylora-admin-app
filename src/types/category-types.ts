@@ -26,6 +26,15 @@ export interface ICategory {
   subCategories: ICategory[];
 }
 
+export interface ICategoryData {
+  _id: string;
+  imageUrl: string;
+  name: string;
+  slug: string;
+  parent: string;
+  parentId: string;
+}
+
 export interface ICategoryApiResponse {
   success: boolean;
   category: ICategory

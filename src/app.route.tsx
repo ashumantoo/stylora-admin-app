@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { Signin } from "./pages/auth/Signin";
 import { Signup } from "./pages/auth/Signup";
 import { Auth } from "./pages/auth";
-import { NewProduct } from "./pages/products/new-product";
+import { ProductMutation } from "./pages/products/product-mutation";
 import { Orders } from "./pages/orders/orders";
 import { Invoices } from "./pages/orders/Invoices";
 import { Payments } from "./pages/orders/payments";
@@ -40,8 +40,8 @@ const AppRoute: React.FC = () => {
             <Route element={<AppLayout />}>
               <Route path='dashboard' element={<Dashboard />} />
               <Route path='products' element={<Products />} />
-              <Route path='products/new' element={<NewProduct />} />
-              <Route path='products/:id' element={<NewProduct />} />
+              <Route path='products/new' element={<ProductMutation />} />
+              <Route path='products/:productId' element={<ProductMutation />} />
               <Route path='category' element={<Categories />} />
               <Route path='orders' element={<Orders />} />
               <Route path='invoices' element={<Invoices />} />
