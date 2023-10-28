@@ -36,7 +36,7 @@ export const Products = () => {
       dataIndex: 'sellingPrice',
     },
     {
-      title: 'Max Retail Price',
+      title: 'Retail Price',
       dataIndex: 'maxRetailPrice',
     },
     {

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Button, Input, Modal, Select, Space, Upload, message, Image } from 'antd';
-import { ICategory, ICategoryInput, ISimpleCategory, MEDIA_FOLDER_NAME } from '../../types/category-types';
+import { CategoryTypeEnum, ICategory, ICategoryInput, ISimpleCategory, MEDIA_FOLDER_NAME } from '../../types/category-types';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { UploadOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,8 +20,24 @@ interface IProps {
 const defaultCategory = {
   name: "",
   parentId: "",
-  imageUrl: ""
+  imageUrl: "",
+  type: ""
 }
+
+const CATEGORY_TYPES = [
+  {
+    label: "Product",
+    value: CategoryTypeEnum.PRODUCT
+  },
+  {
+    label: "Page",
+    value: CategoryTypeEnum.PAGE
+  },
+  {
+    label: "Store",
+    value: CategoryTypeEnum.STORE
+  }
+]
 
 export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClose, reloadCategory }) => {
   const { allCategories } = useSelector((state: any) => state.categoryReducer);
@@ -131,6 +147,19 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
                 className='w-full mt-4'
                 placeholder="Select Parent Category"
                 options={categories}
+                value={field.value}
+              />
+            )}
+          />
+          <Controller
+            name="type"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                className='w-full mt-4'
+                placeholder="Select category type"
+                options={CATEGORY_TYPES}
                 value={field.value}
               />
             )}

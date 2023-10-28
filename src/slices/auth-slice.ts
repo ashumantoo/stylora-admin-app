@@ -91,6 +91,8 @@ const authSlice = createSlice({
       };
       state.token = "";
       state.authenticated = false;
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
     }
   },
   extraReducers: (builder) => {

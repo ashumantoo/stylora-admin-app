@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-import { CATEGORY_SLICE_TYPE_ENUM, ICategory, ICategoryInitialState, ICategoryInput, ISimpleCategory } from "../types/category-types";
+import { CATEGORY_SLICE_TYPE_ENUM, CategoryTypeEnum, ICategory, ICategoryInitialState, ICategoryInput, ISimpleCategory } from "../types/category-types";
 import categoryApi from '../api/category-api';
 import { AxiosError } from "axios";
 import _ from 'lodash';

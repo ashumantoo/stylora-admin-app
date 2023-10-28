@@ -49,6 +49,7 @@ export const UploadMedia: FC<IProgs> = ({ folderName, getUploadedMediaUrls }) =>
     <>
       <Upload
         {...props}
+        multiple={true}
       >
         <Button icon={<UploadOutlined />}>Select Image</Button>
       </Upload>

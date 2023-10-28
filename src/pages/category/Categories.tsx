@@ -18,6 +18,7 @@ interface ICategoryData {
   slug: string;
   parent: string;
   parentId: string;
+  type: string;
 }
 
 export const Categories = () => {
@@ -55,6 +56,10 @@ export const Categories = () => {
     {
       title: 'Parent Category',
       dataIndex: 'parent',
+    },
+    {
+      title: 'Type',
+      dataIndex: 'type',
     },
     {
       title: "Actions",
@@ -135,6 +140,7 @@ export const Categories = () => {
         name: category.name,
         parent: name || "",
         parentId: parentId || "",
+        type: category.type || "",
         imageUrl: category.imageUrl ? category.imageUrl : `https://placehold.co/600x400`,
         slug: category.slug
       })

@@ -224,13 +224,13 @@ export const ProductMutation = () => {
             </div>
           </div>
           <Row gutter={16} className='mt-4'>
-            {_productImages.map((pi) => {
+            {_productImages && _productImages.length > 0 && _productImages.map((pi) => {
               return (
                 <Col className="gutter-row flex flex-col" span={5} key={pi}>
                   <div>
                     <Image
-                      width={120}
-                      height={120}
+                      width={100}
+                      height={160}
                       src={pi}
                       preview={false}
                       className='mt-4 border rounded-lg'

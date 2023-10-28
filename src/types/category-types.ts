@@ -15,6 +15,13 @@ export interface ICategoryInput {
   name: string;
   parentId?: string;
   imageUrl?: string;
+  type?: string;
+}
+
+export enum CategoryTypeEnum {
+  STORE = "STORE",
+  PAGE = "PAGE",
+  PRODUCT = "PRODUCT"
 }
 
 export interface ICategory {
@@ -23,6 +30,7 @@ export interface ICategory {
   slug: string;
   parentId: string;
   imageUrl: string;
+  type?: string;
   subCategories: ICategory[];
 }
 

@@ -18,12 +18,14 @@ import { Payments } from "./pages/orders/payments";
 const AppRoute: React.FC = () => {
   const { authenticated } = useSelector((state: any) => state.authReducer);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (!authenticated) {
       navigate('/signin')
-    } else {
-      navigate('/dashboard');
+    }
+    else {
+      navigate(location.pathname);
     }
   }, [authenticated])
 
