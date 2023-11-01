@@ -88,7 +88,8 @@ export const CategoryMutationModal: FC<IProps> = ({ open, categoryId, handleClos
         reset({
           name: response.category.name,
           parentId: response.category.parentId,
-          imageUrl: response.category.imageUrl
+          imageUrl: response.category.imageUrl,
+          type: response.category.type
         })
       }
     } catch (error) {

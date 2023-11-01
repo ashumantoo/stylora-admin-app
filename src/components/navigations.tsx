@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { FaUser, FaClipboardList, FaMoneyBillAlt, FaBoxOpen, FaMoneyCheckAlt } from 'react-icons/fa';
-import { AiFillDashboard, AiFillTag } from 'react-icons/ai';
+import { AiFillDashboard, AiFillTag, AiOutlineProfile } from 'react-icons/ai';
 import { FaUserGroup } from 'react-icons/fa6';
 
 export const Navigations: FC = () => {
@@ -21,6 +21,11 @@ export const Navigations: FC = () => {
       title: "Categories",
       icon: (<FaClipboardList size={18} />),
       link: "/category"
+    },
+    {
+      title: "Pages",
+      icon: (<AiOutlineProfile size={18} />),
+      link: "/category-page"
     },
     {
       title: "Orders",
