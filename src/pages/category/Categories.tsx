@@ -1,7 +1,7 @@
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { Button, message, Image } from 'antd';
 import Table, { ColumnsType } from 'antd/es/table';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { _deleteCategory, _getCategories, setAllCategories } from '../../slices/category-slice';
@@ -21,7 +21,7 @@ interface ICategoryData {
   type: string;
 }
 
-export const Categories = () => {
+export const Categories: FC = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const [messageApi, contextHolder] = message.useMessage();
   const [data, setData] = useState<ICategoryData[]>([]);

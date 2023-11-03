@@ -2,11 +2,13 @@ import { configureStore, isRejected } from "@reduxjs/toolkit";
 import authReducer from './slices/auth-slice';
 import categoryReducer from './slices/category-slice';
 import productReducer from './slices/product-slice';
+import categoryPageReducer from './slices/category-page-slice';
 
 const reducers = {
   authReducer,
   categoryReducer,
-  productReducer
+  productReducer,
+  categoryPageReducer
 }
 const store = configureStore({
   reducer: reducers,

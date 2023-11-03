@@ -68,5 +68,6 @@ export enum CATEGORY_SLICE_TYPE_ENUM {
 
 export enum MEDIA_FOLDER_NAME {
   CATEGORIES = 'categories',
-  PRODUCTS = 'products'
+  PRODUCTS = 'products',
+  CATEGORIES_PAGE = 'categories_page'
 }
