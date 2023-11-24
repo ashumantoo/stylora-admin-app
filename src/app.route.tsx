@@ -15,6 +15,7 @@ import { Invoices } from "./pages/orders/Invoices";
 import { Payments } from "./pages/orders/payments";
 import { CategoryPages } from "./pages/category-pages/category-pages";
 import { CategoryPageMutation } from "./pages/category-pages/category-page-mutation";
+import { OrderDetails } from "./pages/orders/orders-details";
 
 const AppRoute: React.FC = () => {
   const { authenticated } = useSelector((state: any) => state.authReducer);
@@ -50,6 +51,7 @@ const AppRoute: React.FC = () => {
               <Route path='category-page/new' element={<CategoryPageMutation />} />
               <Route path='category-page/:pageId' element={<CategoryPageMutation />} />
               <Route path='orders' element={<Orders />} />
+              <Route path='orders/:orderId' element={<OrderDetails />} />
               <Route path='invoices' element={<Invoices />} />
               <Route path='payments' element={<Payments />} />
               <Route path='customers' element={<Customers />} />

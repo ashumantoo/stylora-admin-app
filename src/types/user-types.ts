@@ -21,3 +21,21 @@ export interface IAddress {
   country: string;
   postalCode: string
 }
+
+export interface IUserAddress {
+  name: string;
+  mobileNumber: string;
+  pincode: string;
+  locality: string;
+  buildingAndStreet: string;
+  cityTown: string;
+  state: string;
+  landmark: string;
+  alternateMobile?: string
+  addressType: UserAddressType
+}
+
+export enum UserAddressType {
+  HOME = 'HOME',
+  WORK = 'WORK'
+}

@@ -3,12 +3,14 @@ import authReducer from './slices/auth-slice';
 import categoryReducer from './slices/category-slice';
 import productReducer from './slices/product-slice';
 import categoryPageReducer from './slices/category-page-slice';
+import orderReducer from './slices/order-slice';
 
 const reducers = {
   authReducer,
   categoryReducer,
   productReducer,
-  categoryPageReducer
+  categoryPageReducer,
+  orderReducer
 }
 const store = configureStore({
   reducer: reducers,

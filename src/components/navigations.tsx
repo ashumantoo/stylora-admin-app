@@ -31,18 +31,18 @@ export const Navigations: FC = () => {
       title: "Orders",
       icon: (<FaBoxOpen size={18} />),
       link: "/orders",
-      subMenus: [
-        {
-          title: "Invoices",
-          icon: (<FaMoneyBillAlt size={18} />),
-          link: "/invoices"
-        },
-        {
-          title: "Payments",
-          icon: (<FaMoneyCheckAlt size={18} />),
-          link: "/payments"
-        }
-      ]
+      // subMenus: [
+      //   {
+      //     title: "Invoices",
+      //     icon: (<FaMoneyBillAlt size={18} />),
+      //     link: "/invoices"
+      //   },
+      //   {
+      //     title: "Payments",
+      //     icon: (<FaMoneyCheckAlt size={18} />),
+      //     link: "/payments"
+      //   }
+      // ]
     },
     {
       title: "Customers",
@@ -68,12 +68,12 @@ export const Navigations: FC = () => {
               <p className={`font-medium ml-4 flex flex-1}`}>
                 {nav.title}
               </p>
-              {!!nav.subMenus?.length && <i className='icon-ChevronDownMinor' />}
+              {/* {!!nav.subMenus?.length && <i className='icon-ChevronDownMinor' />} */}
               {/* <span className='absolute left-0 top-1/2 -mt-2.5 h-5 bg-purple-800 w-1 hidden group-[.is-active]:block rounded-r-md'
               /> */}
             </NavLink>
-            {nav.subMenus && nav.subMenus.some(n => location.pathname.includes(n.link)) && <span className='hidden peer is-active' />}
-            {nav.subMenus?.map((nav, subIndex) =>
+            {/* {nav.subMenus && nav.subMenus.some(n => location.pathname.includes(n.link)) && <span className='hidden peer is-active' />} */}
+            {/* {nav.subMenus?.map((nav, subIndex) =>
               <NavLink
                 to={nav.link}
                 className={({ isActive, isPending }) => `py-2.5 rounded-lg ml-6 mr-2 px-4 flex-row items-center cursor-pointer no-underline relative group z-[1]
@@ -82,15 +82,12 @@ export const Navigations: FC = () => {
                 `}
                 key={subIndex}
               >
-                {/* <i className={`icon-${nav.icon} invisible text-xl`} /> */}
                 {nav.icon}
                 <p className='font-medium ml-4'>
                   {nav.title}
                 </p>
-                {/* <span className='absolute left-0 top-1/2 -mt-2.5 h-5 bg-purple-800 w-1 hidden group-[.is-active]:block rounded-r-md'
-                /> */}
               </NavLink>
-            )}
+            )} */}
             <div className='absolute left-8 ml-0.5 top-10 bottom-0 border-l border-l-contrast-15 z-[0]'></div>
           </div>
         )
