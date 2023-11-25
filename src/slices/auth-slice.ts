@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authApi from "../api/auth-api";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
+import { IAuthState } from "../types/user-types";
 
-const initialAuthState = {
+const initialAuthState: IAuthState = {
   user: {
     firstName: "",
     lastName: "",
     mobile: "",
-    email: "",
-    password: ""
+    email: ""
   },
   token: "",
   authenticated: false,
@@ -86,8 +86,7 @@ const authSlice = createSlice({
         firstName: "",
         lastName: "",
         mobile: "",
-        email: "",
-        password: ""
+        email: ""
       };
       state.token = "";
       state.authenticated = false;

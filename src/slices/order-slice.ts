@@ -49,7 +49,7 @@ export const _getOrder = createAsyncThunk(
 
 export const _updateOrderStatus = createAsyncThunk(
   ORDERS_SLICE_TYPE_ENUM.UPDATE_ORDER_STATUS,
-  async ({ orderId, payload }: { orderId: string, payload: { userId: string, status: string } }, { rejectWithValue }) => {
+  async ({ orderId, payload }: { orderId: string, payload: { status: string } }, { rejectWithValue }) => {
     try {
       const response = await orderApi.updateOrderStatus(orderId, payload);
       return response.data;

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice, isAction } from "@reduxjs/toolkit";
-import { IProductInput, IProductSliceState, PRODUCT_SLICE_TYPE_ENUM, ProductStatus } from "../types/product-types";
+import { IProductInput, IProductState, PRODUCT_SLICE_TYPE_ENUM, ProductStatus } from "../types/product-types";
 import productApi from "../api/product-api";
 import { AxiosError } from "axios";
 
-const initialState: IProductSliceState = {
+const initialState: IProductState = {
   products: [],
   product: {
     _id: "",

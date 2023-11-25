@@ -1,7 +1,7 @@
 import { ICategory } from "./category-types";
 import { IUser } from "./user-types";
 
-export interface IProductSliceState {
+export interface IProductState {
   products: IProduct[];
   product: IProduct;
 }

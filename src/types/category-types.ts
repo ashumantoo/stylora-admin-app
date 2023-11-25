@@ -1,4 +1,4 @@
-export interface ICategoryInitialState {
+export interface ICategoryState {
   allCategories: ISimpleCategory[];
   categories: ICategory[];
   category: ICategory;

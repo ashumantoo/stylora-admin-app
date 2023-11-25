@@ -4,6 +4,19 @@ import categoryReducer from './slices/category-slice';
 import productReducer from './slices/product-slice';
 import categoryPageReducer from './slices/category-page-slice';
 import orderReducer from './slices/order-slice';
+import { IAuthState } from "./types/user-types";
+import { ICategoryState } from "./types/category-types";
+import { IProductState } from "./types/product-types";
+import { ICategoryPageState } from "./types/category-page-types";
+import { IOrderState } from "./types/order-types";
+
+export interface IAppState {
+  authReducer: IAuthState;
+  categoryReducer: ICategoryState,
+  productReducer: IProductState,
+  categoryPageReducer: ICategoryPageState,
+  orderReducer: IOrderState
+}
 
 const reducers = {
   authReducer,

@@ -1,3 +1,9 @@
+export interface IAuthState {
+  user: Partial<IUser>;
+  token: string;
+  authenticated: boolean;
+}
+
 export interface IUser {
   _id: string;
   firstName: string;
