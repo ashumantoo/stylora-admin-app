@@ -15,24 +15,23 @@ function App() {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
   const [messageApi, contextHolder] = message.useMessage();
 
-  const fetchCategories = async () => {
-    try {
-      const response = await dispatch(_getCategories()).unwrap();
-      if (response && response.categories) {
-        formatCategories(response.categories);
-        dispatch(setAllCategories(_formatedCategories));
-      }
-    } catch (error) {
-      messageApi.open({
-        type: 'error',
-        content: formatAxiosError(error as AxiosError),
-      });
-    }
-  }
-
   useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await dispatch(_getCategories()).unwrap();
+        if (response && response.categories) {
+          formatCategories(response.categories);
+          dispatch(setAllCategories(_formatedCategories));
+        }
+      } catch (error) {
+        messageApi.open({
+          type: 'error',
+          content: formatAxiosError(error as AxiosError),
+        });
+      }
+    }
     fetchCategories();
-  }, []);
+  }, [dispatch, messageApi]);
 
   useEffect(() => {
     if (!authenticated) {

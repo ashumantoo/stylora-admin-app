@@ -29,7 +29,7 @@ const AppRoute: React.FC = () => {
     else {
       navigate(location.pathname === '/' ? '/dashboard' : location.pathname);
     }
-  }, [authenticated])
+  }, [authenticated,navigate])
 
   return (
     <>
