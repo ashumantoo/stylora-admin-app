@@ -82,6 +82,7 @@ export const Signin: FC<IProps> = ({ }) => {
                   render={({ field }) =>
                     <Input
                       {...field}
+                      type='password'
                       placeholder="Password"
                     />
                   }
