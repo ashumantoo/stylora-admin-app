@@ -40,7 +40,7 @@ function App() {
   }, [authenticated]);
 
   return (
-    <ConfigProvider theme={{
+    <ConfigProvider test-id="app" theme={{
       token: {
         colorPrimary: '#2874f0'
       },
